@@ -9,8 +9,10 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
+import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+
 
 const STORAGE_KEY = '@todos_key';
 
@@ -80,12 +82,6 @@ export default function App() {
   };
 
   const renderRightActions = (progress, dragX, todo) => {
-    const trans = dragX.interpolate({
-      inputRange: [-100, 0],
-      outputRange: [1, 0],
-      extrapolate: 'clamp',
-    });
-
     return (
       <View style={styles.actionsContainer}>
         <TouchableOpacity
@@ -206,7 +202,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#f0f0f0',
     justifyContent: 'center',
-    height: 60, // Fixed height helps swipeable
+    height: 60,
   },
   itemText: {
     fontSize: 16,
@@ -223,10 +219,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   editButton: {
-    backgroundColor: '#4CD964', // Greenish for edit
+    backgroundColor: '#4CD964',
   },
   deleteButton: {
-    backgroundColor: '#FF3B30', // Red for delete
+    backgroundColor: '#FF3B30',
   },
   actionText: {
     color: '#ffffff',
