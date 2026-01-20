@@ -87,7 +87,6 @@ export default function App() {
         <TouchableOpacity
           style={[styles.actionButton, styles.editButton]}
           onPress={() => {
-            // but clicking edit updates state which re-renders, usually closing it or keeping it open irrelevant since input changes.
             startEditing(todo);
           }}>
           <Text style={styles.actionText}>Edit</Text>
@@ -117,7 +116,6 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
       <View style={styles.contentContainer}>
-        <Text style={styles.headerTitle}>Todo List</Text>
         
         <View style={styles.inputContainer}>
           <TextInput
@@ -160,8 +158,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     color: '#333333',
-    marginBottom: 20,
-    marginTop: 10,
   },
   inputContainer: {
     flexDirection: 'row',
